@@ -21,11 +21,11 @@ public class App {
         int delay = 5000;   // delay de 5 seg.
         int interval = 5000;  // intervalo de 1 seg.
         Timer timer = new Timer();
+        Monitoramento mon = new Monitoramento();
+        Conexao con = new Conexao();
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                Monitoramento mon = new Monitoramento();
-                Conexao con = new Conexao();
-                JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
                 Date data = new Date();
                 SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
