@@ -7,7 +7,6 @@ package br.com.first.projeto.tela.java;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,13 +19,7 @@ public class App {
 
     public static void main(String[] args) {
         int delay = 5000;
-        int interval = 5000;
-         Scanner leitor = new Scanner(System.in);
-        System.out.println("Digite o email");
-        leitor.next();
-        System.out.println("Digite a senha");
-        leitor.next();
-        System.out.println("Login efetuado com sucesso");
+        int interval = 5000;        
         Timer timer = new Timer();
         Monitoramento mon = new Monitoramento();
         Conexao con = new Conexao();
