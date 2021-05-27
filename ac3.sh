@@ -54,10 +54,6 @@ function clone() {
 }
 
 function docker() {
-        echo "[David help]:Vamos verificar se você tem o docker em sua máquina."
-        docker --version
-
-        if [ $? -eq 0 ]; then
                 cd Ac3-Sistemas-Operacionais
                 sleep 2
                 echo "[David Help]: Criando container"
@@ -66,32 +62,6 @@ function docker() {
                 echo "[David help]: Container criado hora de rodar ele"
                 sudo docker run containerAc3
                 exit
-        else
-                echo "[David help]:Docker não encontrado em sua maquina, gostaria de baixa-lo (S/N)?"
-
-                read inst
-
-                if [ "$inst" == "s" ]; then
-                        echo "[David help]:Ok, vamos baixar o docker."
-                        sleep 1
-                        sudo apt install docker.io
-                        sleep 1
-
-                        echo "[David help]:Pronto, Docker instaldo com sucesso!"
-                        echo "[David help]:Vamos inicia-lo e baixar a imagem do mysql."
-                       sleep 2
-                        cd Ac3-Sistemas-Operacionais
-                        sleep 2
-                        echo "[David Help]: Criando container"
-                        sudo docker built -t containerAc3 .
-                        sleep 2
-                        echo "[David help]: Container criado hora de rodar ele"
-                        sudo docker run containerAc3
-                        else
-                        echo "[David help]:Sem o docker não podemos continuar!"
-                        exit
-                fi
-        fi
 }
 
 
