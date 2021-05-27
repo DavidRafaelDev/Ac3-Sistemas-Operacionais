@@ -7,6 +7,7 @@ package br.com.first.projeto.tela.java;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,8 +19,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class App {
 
     public static void main(String[] args) {
-        int delay = 5000;   // delay de 5 seg.
-        int interval = 5000;  // intervalo de 1 seg.
+        int delay = 5000;
+        int interval = 5000;
+         Scanner leitor = new Scanner(System.in);
+        System.out.println("Digite o email");
+        leitor.next();
+        System.out.println("Digite a senha");
+        leitor.next();
+        System.out.println("Login efetuado com sucesso");
         Timer timer = new Timer();
         Monitoramento mon = new Monitoramento();
         Conexao con = new Conexao();
@@ -31,14 +38,14 @@ public class App {
                 SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
                 String today = formatador.format(data);
 
-                System.out.println("Hora de inserir dados");
+                System.out.println("Inserindo dados");
                 System.out.println(mon.getTemperatura());
                 System.out.println(mon.getQtdProcessos().toString());
 
                 template.update("INSERT INTO dados (ram,temperatura,processador,dataDado,fkMaquina) VALUES (?,?,?,?,?)",
                         "1000", mon.getTemperatura(), mon.getQtdProcessos().toString(), today, 4);
 
-                System.out.println("Dados inseridos");
+                System.out.println("Dados inseridos, inserindo novamente em 5 segundos");
             }
         }, delay, interval);
     }
