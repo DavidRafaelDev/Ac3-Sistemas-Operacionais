@@ -55,11 +55,9 @@ function clone() {
 
 function docker() {
         echo "[David help]:Vamos verificar se você tem o docker em sua máquina."
-
         docker --version
 
         if [ $? -eq 0 ]; then
-                sleep 2
                 cd Ac3-Sistemas-Operacionais
                 sleep 2
                 echo "[David Help]: Criando container"
@@ -67,7 +65,7 @@ function docker() {
                 sleep 2
                 echo "[David help]: Container criado hora de rodar ele"
                 sudo docker run containerAc3
-
+                exit
         else
                 echo "[David help]:Docker não encontrado em sua maquina, gostaria de baixa-lo (S/N)?"
 
