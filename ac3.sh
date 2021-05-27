@@ -57,10 +57,10 @@ function docker() {
                 cd Ac3-Sistemas-Operacionais
                 sleep 2
                 echo "[David Help]: Criando container"
-                sudo docker build -t containerAc3 .
+                sudo docker build -t container-ac3 .
                 sleep 2
                 echo "[David help]: Container criado hora de rodar ele"
-                sudo docker run containerAc3
+                sudo docker run container-ac3
                 exit
 }
 
